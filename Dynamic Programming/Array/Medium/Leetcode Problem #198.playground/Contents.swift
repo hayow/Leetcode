@@ -25,6 +25,7 @@
 
 
 func approach1(_ array: [Int]) -> Int {
+    
     if array.isEmpty {
         return 0
     } else if array.count == 1 {
@@ -34,6 +35,7 @@ func approach1(_ array: [Int]) -> Int {
     } else {
         return max(array[0] + approach1(Array(array[2..<array.count])), approach1(Array(array[1..<array.count])))
     }
+    
 }
 
 
@@ -53,6 +55,7 @@ func approach1(_ array: [Int]) -> Int {
 
 func approach2(_ array: [Int]) -> Int {
     var cache: [Int: Int] = [:]
+    
     func helper(_ _array: [Int]) -> Int {
         if _array.isEmpty {
             return 0
@@ -69,6 +72,41 @@ func approach2(_ array: [Int]) -> Int {
     }
     
     return helper(array)
+}
+
+
+
+
+
+/*
+
+ Approach: 3
+ Method: Iteration
+ Time complexity: O(n), n == maximumRobbed.count
+ Space complexity: O(n) n == maximumRobbed.count
+ 
+*/
+
+
+
+func approach3(_ array: [Int]) -> Int {
+    
+    if array.isEmpty {
+        return 0
+    } else if array.count == 1 {
+        return array[0]
+    } else if array.count == 2 {
+        return max(array[0], array[1])
+    } else {
+        var maximumRobbed: [Int] = array
+        maximumRobbed[1] = max(maximumRobbed[0], maximumRobbed[1])
+        
+        for i in 2..<maximumRobbed.count {
+            maximumRobbed[i] = max(maximumRobbed[i] + maximumRobbed[i - 2], maximumRobbed[i - 1])
+        }
+        return maximumRobbed[maximumRobbed.count - 1]
+    }
+    
 }
 
 
