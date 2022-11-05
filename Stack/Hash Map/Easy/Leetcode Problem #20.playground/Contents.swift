@@ -25,27 +25,27 @@
 
 
 func approach1(_ string: String) -> Bool {
-    let parenthesesMap: [Character: Character] = [
+    let parenthesisMap: [Character: Character] = [
         ")": "(",
         "]": "[",
         "}": "{"
     ]
-    var parenthesesStack: [Character] = []
+    var parenthesisStack: [Character] = []
     
-    for parenthese in string {
+    for parenthesis in string {
         
-        if let _parenthese: Character = parenthesesMap[parenthese] {
-            if parenthesesStack.isEmpty == false && parenthesesStack[parenthesesStack.count - 1] == _parenthese {
-                parenthesesStack.removeLast()
+        if let _parenthesis: Character = parenthesisMap[parenthesis] {
+            if parenthesisStack.isEmpty == false && parenthesisStack[parenthesisStack.count - 1] == _parenthesis {
+                parenthesisStack.removeLast()
             } else {
                 return false
             }
         } else {
-            parenthesesStack.append(parenthese)
+            parenthesisStack.append(parenthesis)
         }
     }
     
-    return parenthesesStack.isEmpty
+    return parenthesisStack.isEmpty
 }
 
 
