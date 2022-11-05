@@ -73,3 +73,32 @@ func approach2(_ array: [Int], _ target: Int) -> [Int] {
 
 
 
+/*
+
+ Approach: 3
+ Method: Iteration (optimized using hash map)
+ Time complexity: O(n), n == array.count
+ Space complexity: O(n), n == complements.count
+ 
+*/
+
+
+
+func approach3(_ array: [Int], _ target: Int) -> [Int] {
+    var complements: [Int: Int] = [:]
+    
+    for j in 0..<array.count {
+        if let i: Int = complements[target - array[j]] {
+            return [i, j]
+        } else {
+            complements[array[j]] = j
+        }
+    }
+
+    return []
+}
+
+
+
+
+
