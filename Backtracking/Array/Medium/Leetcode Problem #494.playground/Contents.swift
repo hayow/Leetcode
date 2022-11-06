@@ -26,7 +26,7 @@
 
 func approach1(_ array: [Int], _ target: Int) -> Int {
     
-    func helper(_ _numbers: [Int], _ _target: Int, _ index: Int) -> Int {
+    func helper(_ _array: [Int], _ _target: Int, _ index: Int) -> Int {
         if index == -1 {
             if _target == 0 {
                 return 1
@@ -35,7 +35,7 @@ func approach1(_ array: [Int], _ target: Int) -> Int {
             }
         } else {
         
-            return helper(_numbers, _target - _numbers[index], index - 1) + helper(_numbers, _target + _numbers[index], index - 1)
+            return helper(_array, _target - _array[index], index - 1) + helper(_array, _target + _array[index], index - 1)
         }
     }
     
