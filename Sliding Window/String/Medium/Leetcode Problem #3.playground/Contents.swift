@@ -26,7 +26,7 @@
 
 func approach1(_ string: String) -> Int {
     
-    func containsDuplicate(_ _string: String) -> Bool {
+    func containsDuplicateCharacters(_ _string: String) -> Bool {
         var characterSet: Set<Character> = Set()
         for character in _string {
             if characterSet.contains(character) {
@@ -47,7 +47,7 @@ func approach1(_ string: String) -> Int {
                 currentSubstring.append(string[string.index(string.startIndex, offsetBy: k)])
             }
             
-            if containsDuplicate(currentSubstring) == false {
+            if containsDuplicateCharacters(currentSubstring) == false {
                 longestSubstringWithUniqueCharacters = max(longestSubstringWithUniqueCharacters, currentSubstring.count)
             }
         }
