@@ -38,7 +38,7 @@ func approach1(_ string: String) -> Int {
         return false
     }
     
-    var longestSubstringWithUniqueCharacters: Int = 0
+    var lengthOfLongestSubstringWithUniqueCharacters: Int = 0
     
     for i in 0..<string.count {
         for j in i..<string.count {
@@ -48,12 +48,12 @@ func approach1(_ string: String) -> Int {
             }
             
             if containsDuplicateCharacters(currentSubstring) == false {
-                longestSubstringWithUniqueCharacters = max(longestSubstringWithUniqueCharacters, currentSubstring.count)
+                lengthOfLongestSubstringWithUniqueCharacters = max(lengthOfLongestSubstringWithUniqueCharacters, currentSubstring.count)
             }
         }
     }
     
-    return longestSubstringWithUniqueCharacters
+    return lengthOfLongestSubstringWithUniqueCharacters
 }
 
 
