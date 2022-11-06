@@ -13,3 +13,36 @@
 
 
 
+/*
+
+ Approach: 1
+ Method: Recursion
+ Time complexity: O(2^n), n == array.count
+ Space complexity: O(n), n == height of the recursive tree == array.count
+ 
+*/
+
+
+
+func approach1(_ array: [Int], _ target: Int) -> Int {
+    
+    func helper(_ _numbers: [Int], _ _target: Int, _ index: Int) -> Int {
+        if index == -1 {
+            if _target == 0 {
+                return 1
+            } else {
+                return 0
+            }
+        } else {
+        
+            return helper(_numbers, _target - _numbers[index], index - 1) + helper(_numbers, _target + _numbers[index], index - 1)
+        }
+    }
+    
+    return helper(array, target, array.count - 1)
+}
+
+
+
+
+
