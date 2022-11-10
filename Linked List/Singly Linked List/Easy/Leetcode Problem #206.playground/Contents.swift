@@ -52,3 +52,33 @@ func approach1(_ head: SinglyLinkedListNode?) -> SinglyLinkedListNode? {
 
 
 
+/*
+
+ Approach: 2
+ Method: Iteration
+ Time complexity: O(n), n == length of the linked list
+ Space complexity: O(1)
+ 
+*/
+
+
+
+func approach2(_ head: SinglyLinkedListNode?) -> SinglyLinkedListNode? {
+    var previous: SinglyLinkedListNode? = nil
+    var current: SinglyLinkedListNode? = head
+    var next: SinglyLinkedListNode? = head
+    
+    while (current == nil) == false {
+        next = current?.next
+        current?.next = previous
+        previous = current
+        current = next
+    }
+    
+    return previous
+}
+
+
+
+
+
